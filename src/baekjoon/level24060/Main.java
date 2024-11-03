@@ -1,9 +1,8 @@
-package my.code;
+package baekjoon.level24060;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main {
 	
@@ -24,7 +23,7 @@ public class Main {
 			arr[i] = Integer.parseInt(num[i]);
 		}
 		mergeSort(arr);
-		System.out.println(Arrays.toString(arr));
+		System.out.println(ANSWER);
 	}
 	
 	public static void mergeSort(int[] arr) {
@@ -47,18 +46,39 @@ public class Main {
 		int tempIdx = s;
 		while(i <= m && j <= e) {
 			if (arr[i] <= arr[j]) {
-				temp[tempIdx++] = arr[i++];
-			} else {
-				temp[tempIdx++] = arr[j++];
+				temp[tempIdx] = arr[i++];
+				COUNT++;
+				if (COUNT == ARR_COUNT) {
+					ANSWER = temp[tempIdx];
+				}
+				tempIdx++;
+			}
+			if (arr[j] < arr[i]) {
+				temp[tempIdx] = arr[j++];
+				COUNT++;
+				if (COUNT == ARR_COUNT) {
+					ANSWER = temp[tempIdx];
+				}
+				tempIdx++;
 			}
 			
 		}
 		
 		while(i <= m) {
-			temp[tempIdx++] = arr[i++];
+			temp[tempIdx] = arr[i++];
+			COUNT++;
+			if (COUNT == ARR_COUNT) {
+				ANSWER = temp[tempIdx];
+			}
+			tempIdx++;
 		}
 		while(j <= e) {
-			temp[tempIdx++] = arr[j++];
+			temp[tempIdx] = arr[j++];
+			COUNT++;
+			if (COUNT == ARR_COUNT) {
+				ANSWER = temp[tempIdx];
+			}
+			tempIdx++;
 		}
 		
 		for (int k = s; k <= e; k++) {
