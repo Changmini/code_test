@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
  
 public class Main {
- 
+	
 	static Integer[][] dp;
 	static int[] W; // weight
 	static int[] V; // value
@@ -34,7 +34,8 @@ public class Main {
 		System.out.println(knapsack(N - 1, K));
  
 	}
- 
+	
+	/** https://sskl660.tistory.com/88 */
 	static int knapsack(int i, int k) {
 		// i가 0미만, 즉 범위 밖이 된다면
 		if (i < 0)
